@@ -147,6 +147,23 @@ previous screens. (With large files, this could cause a noticeable pause.)
 `I` toggles balance assertion checking. 
 Disabling balance assertions temporarily can be useful for troubleshooting. 
 
+`B` toggles cost mode, showing amounts in their transaction price's
+commodity (like toggling the
+[`-B/--cost`](https://hledger.org/hledger.html#b-cost) flag).
+
+`V` toggles value mode, showing amounts' current market value in their
+default valuation commodity (like toggling the
+[`-V/--market`](https://hledger.org/hledger.html#v-market-value) flag).
+Note, "current market value" means the value on the report end date if specified, otherwise today.
+To see the value on another date, such as the transaction's date, you can 
+temporarily set a date filter ending on the following day.
+Eg to see the contemporaneous value of a transaction on july 30,
+go to the accounts or register screen, press `/`, add ` date:-7/30`.
+
+In hledger-ui, only one of `B` and `V` can be active at once.
+There's not yet any visual reminder of which is active; you must
+remember, or guess from the amounts displayed.
+
 `a` runs command-line hledger's add command, and reloads the updated file.
 This allows some basic data entry. 
 
