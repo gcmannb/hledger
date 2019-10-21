@@ -47,6 +47,7 @@ module Hledger.Utils.Debug (
   ,dbg7IO
   ,dbg8IO
   ,dbg9IO
+  -- ,plogWith
   ,plog
   ,plogAt
   ,traceParse
@@ -246,8 +247,13 @@ dbg8IO = ptraceAtIO 8
 dbg9IO :: (MonadIO m, Show a) => String -> a -> m ()
 dbg9IO = ptraceAtIO 9
 
--- | Log a label and a pretty-printed showable value to ./debug.log, then return it.
--- Can fail, see plogAt.
+-- -- | Log a label and pretty-printed showable value to ./debug.log
+-- -- using a custom show function, then return it. Can fail, see plogAt.
+-- plogWith :: Show a => (a -> String) -> a -> a
+-- plogWith f a = trace (f a) a
+
+-- | Log a label and pretty-printed showable value to ./debug.log,
+-- then return it. Can fail, see plogAt.
 plog :: Show a => String -> a -> a
 plog = plogAt 0
 

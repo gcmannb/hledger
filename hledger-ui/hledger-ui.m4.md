@@ -160,9 +160,14 @@ temporarily set a date filter ending on the following day.
 Eg to see the contemporaneous value of a transaction on july 30,
 go to the accounts or register screen, press `/`, add ` date:-7/30`.
 
-In hledger-ui, only one of `B` and `V` can be active at once.
-There's not yet any visual reminder of which is active; you must
-remember, or guess from the amounts displayed.
+Only one of `B` and `V` can be active at once (in hledger-ui).
+There's not yet any visual reminder of which is active; 
+press one of these keys twice to reset to normal mode.
+
+A current bug: 
+while viewing the transaction screen in cost or value mode, with --watch active,
+if you save an edit to the journal file,
+B/V will not toggle until you to press g to force a manual reload.
 
 `a` runs command-line hledger's add command, and reloads the updated file.
 This allows some basic data entry. 
